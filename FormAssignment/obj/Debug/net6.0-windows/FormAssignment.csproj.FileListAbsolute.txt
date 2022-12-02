@@ -1,0 +1,17 @@
+C:\Users\Oluwa\Source\repos\FormAssignment\FormAssignment\bin\Debug\net6.0-windows\FormAssignment.exe
+C:\Users\Oluwa\Source\repos\FormAssignment\FormAssignment\bin\Debug\net6.0-windows\FormAssignment.deps.json
+C:\Users\Oluwa\Source\repos\FormAssignment\FormAssignment\bin\Debug\net6.0-windows\FormAssignment.runtimeconfig.json
+C:\Users\Oluwa\Source\repos\FormAssignment\FormAssignment\bin\Debug\net6.0-windows\FormAssignment.dll
+C:\Users\Oluwa\Source\repos\FormAssignment\FormAssignment\bin\Debug\net6.0-windows\FormAssignment.pdb
+C:\Users\Oluwa\Source\repos\FormAssignment\FormAssignment\obj\Debug\net6.0-windows\FormAssignment.csproj.AssemblyReference.cache
+C:\Users\Oluwa\Source\repos\FormAssignment\FormAssignment\obj\Debug\net6.0-windows\FormAssignment.Form1.resources
+C:\Users\Oluwa\Source\repos\FormAssignment\FormAssignment\obj\Debug\net6.0-windows\FormAssignment.csproj.GenerateResource.cache
+C:\Users\Oluwa\Source\repos\FormAssignment\FormAssignment\obj\Debug\net6.0-windows\FormAssignment.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Oluwa\Source\repos\FormAssignment\FormAssignment\obj\Debug\net6.0-windows\FormAssignment.AssemblyInfoInputs.cache
+C:\Users\Oluwa\Source\repos\FormAssignment\FormAssignment\obj\Debug\net6.0-windows\FormAssignment.AssemblyInfo.cs
+C:\Users\Oluwa\Source\repos\FormAssignment\FormAssignment\obj\Debug\net6.0-windows\FormAssignment.csproj.CoreCompileInputs.cache
+C:\Users\Oluwa\Source\repos\FormAssignment\FormAssignment\obj\Debug\net6.0-windows\FormAssignment.dll
+C:\Users\Oluwa\Source\repos\FormAssignment\FormAssignment\obj\Debug\net6.0-windows\refint\FormAssignment.dll
+C:\Users\Oluwa\Source\repos\FormAssignment\FormAssignment\obj\Debug\net6.0-windows\FormAssignment.pdb
+C:\Users\Oluwa\Source\repos\FormAssignment\FormAssignment\obj\Debug\net6.0-windows\FormAssignment.genruntimeconfig.cache
+C:\Users\Oluwa\Source\repos\FormAssignment\FormAssignment\obj\Debug\net6.0-windows\ref\FormAssignment.dll
