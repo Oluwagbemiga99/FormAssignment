@@ -30,7 +30,7 @@ namespace FormAssignment
         // This gets or sets the x-coordinate of the draw method
         public int YPos
         {
-            get { return yPos; }
+            get { return yPos; }new
             set { yPos = value; }
         }
 
