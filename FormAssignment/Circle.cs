@@ -10,16 +10,50 @@ namespace FormAssignment
     {
         int radius;
 
-        public Circle(int xPos, int yPos, int Radius) : base(xPos, yPos)
+        // Circle constructor
+        public Circle(Canvas paintCanvas, List<string> param)
         {
-            radius = Radius;
+            PaintCanvas = paintCanvas;
+            Param = param;
+            CheckParam();
+        }
+
+        // this gets the radius of the circle
+        public int Radius
+        {
+            get { return radius; }
+        }
+
+        public override void CheckParam()
+        {
+            string[] userParam = Param[0].Split(',');
+            if (int.TryParse(userParam[0], out int Radius))
+            {
+                radius = Radius;
+            }
         }
 
         // The circle draw method
-        public void DrawCircle(Graphics g)
+        public override void Draw()
         {
-            Pen myPen = new(Color.Black, 1);
-            g.DrawEllipse(myPen, xPos, yPos, radius, radius);
+            Graphics g = Graphics.FromImage(paintCanvas.Bitmap);
+
+            if (paintCanvas.Fill == false)
+            {
+                Pen myPen = new Pen(paintCanvas.MyColour);
+                var xPos = paintCanvas.XPos - radius;
+                var yPos = paintCanvas.YPos - radius;
+                g.DrawEllipse(myPen, xPos, yPos, radius * 2, radius * 2);
+                myPen.Dispose();
+            }
+            else
+            {
+                SolidBrush solidBrush = new SolidBrush(paintCanvas.MyColour);
+                var xPos = paintCanvas.XPos - radius;
+                var yPos = paintCanvas.YPos - radius;
+                g.FillEllipse(solidBrush, xPos, yPos, radius, radius);
+                solidBrush.Dispose();
+            }
         }
     }
 }

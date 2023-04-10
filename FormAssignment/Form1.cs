@@ -8,20 +8,24 @@ namespace FormAssignment
 {
     public partial class Form1 : Form
     {
+        Canvas newCanvas;
+        Command comm;
 
         public Form1()
         {
             InitializeComponent();
+
+            newCanvas = new Canvas(new Bitmap(ShapesWindow.Width, ShapesWindow.Height));
+            comm = new CommandFactory();
         }
 
         private void RunCommand_Click(object sender, EventArgs e)
         {
             string multiCommand = MultiCommandText.Text;
             string showCommand = CommandText.Text;
-            Graphics g = ShapesWindow.CreateGraphics();
 
-            // Takes in the text from the textbox and passes it to the parser class
-            Parser parser = new(showCommand, g);
+            comm.Commands(newCanvas, showCommand);
+            comm.Commands(newCanvas, multiCommand);
         }
 
         private void ResetCommand_Click(object sender, EventArgs e)
@@ -34,10 +38,8 @@ namespace FormAssignment
             if (e.KeyCode == Keys.Enter)
             {
                 string showCommand = CommandText.Text;
-                Graphics g = ShapesWindow.CreateGraphics();
 
-                // Takes in the text from the textbox and passes it to the parser class
-                Parser parser = new(showCommand, g);
+                comm.Commands(newCanvas, showCommand);
             }
         }
     }

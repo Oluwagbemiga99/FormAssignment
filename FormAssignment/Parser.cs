@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,48 +10,32 @@ namespace FormAssignment
 {
     public class Parser
     {
-        public Parser(string showCommand, Graphics g) 
+        // This gets the command from the user input
+        public static string GetCommand(string userInput)
         {
-            string[] commandList = showCommand.Split(" ");
-            // Ensures the text is always lower case
-            string command = commandList[0].ToLowerInvariant();
-            if (commandList.Length < 3 || commandList.Length < 2 || commandList.Length < 1)
-            {
-                MessageBox.Show("Not enough parameters");
-            }
-            else
-            {
-                // Takes in x coordinate
-                int current_xPos = int.Parse(commandList[1]);
-                // Takes in y coordinate
-                int current_yPos = int.Parse(commandList[2]);
-                // Takes in the radius for the circle
-                int current_Radius = int.Parse(commandList[3]);
-                // Takes in the side of the square
-                int current_size = int.Parse(commandList[3]);
-                // Takes in the width for the rectangle
-                int current_width = int.Parse(commandList[3]);
+            string[] userCommandSplit = userInput.Split(" ");
+            return userCommandSplit[0];
+        }
 
-                if (command == "circle")
-                {
-                    Circle circle = new(current_xPos, current_yPos, current_Radius);
-                    circle.DrawCircle(g);
-                }
-                else if (command == "square")
-                {
-                    Sqaure sqaure = new(current_xPos, current_yPos, current_size);
-                    sqaure.drawSqaure(g);
-                }
-                else if (command == "rect")
-                {
-                    Rectangle rect = new(current_xPos, current_yPos, current_width, int.Parse(commandList[4]));
-                    rect.DrawRectancgle(g);
-                }
-                else
-                {
-                    MessageBox.Show("Wrong command");
-                }
-            }
+        // This gets the parameters of the user input
+        public static List<string> GetParam(string userInput) 
+        {
+            List<string> param = new List<string>();
+            string[] userParamSplit = userInput.Split(" ");
+            param = userParamSplit.ToList();
+            param.RemoveAt(0);
+
+            return param;
+        }
+
+        public static string GetParamMultiline(string userInput) 
+        {
+            List<string> param = new List<string>();
+            string[] userParamSplit = userInput.Split(" ");
+            param = userParamSplit.ToList();
+            param.RemoveAt(0);
+
+            return string.Join(" ", param);
         }
     }
 }

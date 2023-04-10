@@ -6,15 +6,27 @@ using System.Threading.Tasks;
 
 namespace FormAssignment
 {
-    public class Shape
+    public abstract class Shape
     {
-        protected int xPos;
-        protected int yPos;
+        protected List<string> param = new List<string>();
+        protected Canvas paintCanvas;
 
-        public Shape(int X, int Y)
+        public abstract void Draw();
+
+        public abstract void CheckParam();
+
+        // This gets or sets the user input
+        public List<string> Param
         {
-            xPos = X;
-            yPos = Y;   
+            get { return param; }
+            set { param = value; }   
+        }
+
+        // This gets or sets the canvas
+        public Canvas PaintCanvas
+        {
+            get { return paintCanvas; }
+            set { paintCanvas = value; }
         }
     }
 }
