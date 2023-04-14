@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FormAssignment
 {
@@ -10,9 +11,10 @@ namespace FormAssignment
     {
         protected int xPos;
         protected int yPos;
+        protected PictureBox PictureBox;
         protected Bitmap bitmap;
         Color myColour = Color.Black;
-        protected bool fill = false;
+        protected bool filled = false;
 
         // Constructor that indicates the bitmap to draw on.
         public Canvas(Bitmap bitmap) 
@@ -48,10 +50,10 @@ namespace FormAssignment
         }
 
         // This gets or sets whether the shape is filled
-        public bool Fill
+        public bool Filled
         {
-            get { return fill; }
-            set { fill = value; }
+            get { return filled; }
+            set { filled = value; }
         }
     }
 }

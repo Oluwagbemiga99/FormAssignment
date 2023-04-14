@@ -11,12 +11,15 @@ namespace FormAssignment
         // Takes in shape object and runs the draw method
         public void Commands(Canvas canvas, string userInput) 
         {
-            Shape command;
+            Shape shape;
 
-            command = CreateCommands(canvas, userInput);
+            shape = CreateCommands(canvas, userInput);
 
-            command.Draw();
-
+            if (shape != null )
+            {
+                shape.Draw();
+            }
+            
         }
 
         // returns a shape object

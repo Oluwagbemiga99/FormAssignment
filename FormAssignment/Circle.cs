@@ -6,53 +6,65 @@ using System.Threading.Tasks;
 
 namespace FormAssignment
 {
-    class Circle : Shape
+    public class Circle : Shape
     {
         int radius;
 
         // Circle constructor
-        public Circle(Canvas paintCanvas, List<string> param)
+        public Circle(Canvas canvas, List<string> param)
         {
-            PaintCanvas = paintCanvas;
+            PaintCanvas = canvas;
             Param = param;
             CheckParam();
         }
 
-        // this gets the radius of the circle
+        // This gets the radius of the circle
         public int Radius
         {
             get { return radius; }
         }
 
+        // Shows error if the parameters are not met
         public override void CheckParam()
         {
-            string[] userParam = Param[0].Split(',');
+            if (Param.Count != 1)
+            {
+                MessageBox.Show("Invalid number of parameters");
+                return;
+            }
+
+            string[] userParam = Param[0].Split(",");
             if (int.TryParse(userParam[0], out int Radius))
             {
                 radius = Radius;
+            }
+            else
+            {
+                Console.WriteLine("Invalid Type of parameters");
             }
         }
 
         // The circle draw method
         public override void Draw()
         {
-            Graphics g = Graphics.FromImage(paintCanvas.Bitmap);
+            Graphics g = Graphics.FromImage(PaintCanvas.Bitmap);
 
-            if (paintCanvas.Fill == false)
+            var xPos = PaintCanvas.XPos - radius;
+            var yPos = PaintCanvas.YPos - radius;
+
+            if (PaintCanvas.Filled == false)
             {
-                Pen myPen = new Pen(paintCanvas.MyColour);
-                var xPos = paintCanvas.XPos - radius;
-                var yPos = paintCanvas.YPos - radius;
-                g.DrawEllipse(myPen, xPos, yPos, radius * 2, radius * 2);
-                myPen.Dispose();
+                using (Pen myPen = new Pen(PaintCanvas.MyColour))
+                {
+                    g.DrawEllipse(myPen, xPos, yPos, radius * 2, radius * 2);
+                }
             }
             else
             {
-                SolidBrush solidBrush = new SolidBrush(paintCanvas.MyColour);
-                var xPos = paintCanvas.XPos - radius;
-                var yPos = paintCanvas.YPos - radius;
-                g.FillEllipse(solidBrush, xPos, yPos, radius, radius);
-                solidBrush.Dispose();
+                using (SolidBrush solidBrush = new SolidBrush(PaintCanvas.MyColour))
+                {
+                    g.FillEllipse(solidBrush, xPos, yPos, radius * 2, radius * 2);
+                }
             }
         }
     }

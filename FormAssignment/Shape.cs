@@ -11,8 +11,11 @@ namespace FormAssignment
         protected List<string> param = new List<string>();
         protected Canvas paintCanvas;
 
+        // The command draw method
         public abstract void Draw();
 
+        // Checks if the parameters are not met
+        // and also parses command parameter
         public abstract void CheckParam();
 
         // This gets or sets the user input

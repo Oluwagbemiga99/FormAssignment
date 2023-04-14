@@ -19,27 +19,34 @@ namespace FormAssignment
             comm = new CommandFactory();
         }
 
+        // Takes in the multiline textbox text
+        // and passes it to the command factory class 
         private void RunCommand_Click(object sender, EventArgs e)
         {
-            string multiCommand = MultiCommandText.Text;
-            string showCommand = CommandText.Text;
+            string multiCommand = MultiCommandText.Text.ToLower();
 
-            comm.Commands(newCanvas, showCommand);
-            comm.Commands(newCanvas, multiCommand);
+            comm.Commands(newCanvas, "run" + " " + multiCommand);
         }
 
-        private void ResetCommand_Click(object sender, EventArgs e)
-        {
-            ShapesWindow.Refresh();
-        }
-
+        // Takes in the commandline textbox text
+        // and passes it to the command factory class 
         private void CommandText_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
+                e.SuppressKeyPress = true;
                 string showCommand = CommandText.Text;
 
-                comm.Commands(newCanvas, showCommand);
+                if (showCommand == "run")
+                {
+                    RunCommand_Click(sender, e);
+                }
+                else
+                {
+                    comm.Commands(newCanvas, showCommand);
+                    ShapesWindow.Image = newCanvas.Bitmap;
+                }
+                
             }
         }
     }

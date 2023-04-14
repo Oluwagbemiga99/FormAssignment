@@ -32,13 +32,12 @@
             this.MultiCommandText = new System.Windows.Forms.TextBox();
             this.CommandText = new System.Windows.Forms.TextBox();
             this.RunCommand = new System.Windows.Forms.Button();
-            this.ResetCommand = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ShapesWindow)).BeginInit();
             this.SuspendLayout();
             // 
             // ShapesWindow
             // 
-            this.ShapesWindow.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.ShapesWindow.BackColor = System.Drawing.Color.DarkGray;
             this.ShapesWindow.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.ShapesWindow.Location = new System.Drawing.Point(287, 12);
             this.ShapesWindow.Name = "ShapesWindow";
@@ -72,24 +71,12 @@
             this.RunCommand.UseVisualStyleBackColor = true;
             this.RunCommand.Click += new System.EventHandler(this.RunCommand_Click);
             // 
-            // ResetCommand
-            // 
-            this.ResetCommand.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ResetCommand.Location = new System.Drawing.Point(93, 261);
-            this.ResetCommand.Name = "ResetCommand";
-            this.ResetCommand.Size = new System.Drawing.Size(75, 23);
-            this.ResetCommand.TabIndex = 0;
-            this.ResetCommand.Text = "Reset";
-            this.ResetCommand.UseVisualStyleBackColor = false;
-            this.ResetCommand.Click += new System.EventHandler(this.ResetCommand_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(576, 294);
-            this.Controls.Add(this.ResetCommand);
             this.Controls.Add(this.RunCommand);
             this.Controls.Add(this.CommandText);
             this.Controls.Add(this.MultiCommandText);
@@ -108,6 +95,5 @@
         private TextBox MultiCommandText;
         private TextBox CommandText;
         private Button RunCommand;
-        private Button ResetCommand;
     }
 }

@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace FormAssignment
 {
-    class DrawTo : Shape
+    public class DrawTo : Shape
     {
         int newX, newY;
 
+        // DrawTo constructor
         public DrawTo(Canvas canvas, List<string> param)
         {
             PaintCanvas = canvas;
@@ -17,7 +18,7 @@ namespace FormAssignment
             CheckParam();
         }
 
-        // This gets the new x position to draw to
+        // This gets the new x position to draw t0
         public int NewX
         {
             get { return newX; }
@@ -29,28 +30,43 @@ namespace FormAssignment
             get { return newY; }
         }
 
+        // Shows error if the parameters are not met
         public override void CheckParam()
         {
-            string[] userParam = Param[0].Split(',');
+            string[] userParam = Param[0].Split(",");
+
+            if (Param.Count != 1 || userParam.Length != 2)
+            {
+                MessageBox.Show("Invalid number of Parameters");
+                return;
+            }
+
             if (int.TryParse(userParam[0], out int xPos) 
                 && int.TryParse(userParam[1], out int yPos))
             {
                 newX = xPos;
                 newY = yPos;
             }
+            else
+            {
+                MessageBox.Show("Invalid Type of parameters");
+            }
         }
 
+        // The drawTo draw method
         public override void Draw()
         {
-            Graphics g = Graphics.FromImage(paintCanvas.Bitmap);
+            Graphics g = Graphics.FromImage(PaintCanvas.Bitmap);
 
-            Pen myPen = new Pen(PaintCanvas.MyColour);
-            var xPos = paintCanvas.XPos;
-            var yPos = paintCanvas.YPos;
-            g.DrawLine(myPen, xPos, yPos, newX, newY);
+            var xPos = PaintCanvas.XPos;
+            var yPos = PaintCanvas.YPos;
 
-            paintCanvas.XPos = newX;
-            paintCanvas.YPos = newY;
+            using (Pen myPen = new Pen(PaintCanvas.MyColour))
+            {
+                PaintCanvas.XPos = newX;
+                PaintCanvas.YPos = newY;
+                g.DrawLine(myPen, xPos, yPos, newX, newY);
+            }                          
         }
     }
 }
